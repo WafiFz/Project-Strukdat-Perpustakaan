@@ -40,19 +40,19 @@ Aplikasi PJJ dapat melakukan beberapa hal, antara lain sebagai beikut:
 * Hapus Buku
 
 [Skema menampilkan seluruh daftar buku]
-Traversal linkedlist
+```Traversal linkedlist```
 
 [Skema Mencari buku (Berdasarkan penulis/kategori/judul)]
-User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan
+```User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan```
 
 [Skema meminjam buku]
-User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". (Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
+```User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". (Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".```
 
 [Skema mengembalikan buku]
-User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). Apabila ditemukan, hapus edge di Graph "Dipinjam".
+```User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). Apabila ditemukan, hapus edge di Graph "Dipinjam".```
 
 [Skema Menampilkan buku yang sedang dipinjam]
-Traversal Graph "Dipinjam"
+```Traversal Graph "Dipinjam"```
 
 
 ## Gambar Rancangan Antar Muka
@@ -63,11 +63,11 @@ https://www.figma.com/file/7jOEUD22KLWapaXcJ8cI3M/UI-Library
 ## Rencana Pengerjaan Projek
 Pengerjaan proyek dilakukan dengan menggunakan software online yang memungkinkan untuk berkolaborasi, dan melakukan pekerjaan secara bersama-sama. Berikut software dan aplikasi yang digunakan:
 
-replit.com
-Line
-Discord
-Figma
-Dll.
+* replit.com
+* Line
+* Discord
+* Figma
+* Dll.
 
 Pekerjaan juga dilakukan dengan membagi pekerjaan pada masing-masing anggota
 

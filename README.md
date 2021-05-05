@@ -40,23 +40,28 @@ Aplikasi PJJ dapat melakukan beberapa hal, antara lain sebagai beikut:
 * Hapus Buku
 
 [Skema menampilkan seluruh daftar buku]:
-```Traversal linkedlist
+```shell
+Traversal linkedlist
 ```
 
 [Skema Mencari buku (Berdasarkan penulis/kategori/judul)]:
-```User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan
+```shell
+User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan
 ```
 
 [Skema meminjam buku]:
-```User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". (Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
+```shell
+User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". (Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
 ```
 
 [Skema mengembalikan buku]:
-```User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). Apabila ditemukan, hapus edge di Graph "Dipinjam".
+```shell
+User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). Apabila ditemukan, hapus edge di Graph "Dipinjam".
 ```
 
 [Skema Menampilkan buku yang sedang dipinjam]:
-```Traversal Graph "Dipinjam"
+```shell
+Traversal Graph "Dipinjam"
 ```
 
 

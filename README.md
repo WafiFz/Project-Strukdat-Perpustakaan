@@ -60,7 +60,7 @@ Identitas user dan Buku akan di-enqueu ke "Dikirim".
 
 [Skema mengembalikan buku]:
 ```shell
-User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). 
+User meng-input judul buku yang akan dikembalikan (Melakukan Search Graph "Dipinjam"). 
 Apabila ditemukan, hapus edge di Graph "Dipinjam".
 ```
 
@@ -68,7 +68,16 @@ Apabila ditemukan, hapus edge di Graph "Dipinjam".
 ```shell
 Traversal Graph "Dipinjam"
 ```
+[Skema Menambah buku]:
+```shell
+Petugas meng-input identitas buku yang akan ditambahkan. Kemudian akan di-insert ke linkedlist 
+```
 
+[Skema Hapus buku]:
+```shell
+Petugas meng-input judul buku yang akan dihapus (Melakukan search Linkedlist). 
+Apabila ditemukan, akan di-insert ke linkedlist 
+```
 
 ## Gambar Rancangan Antar Muka
 Rancangan Antar Muka Mohon Akses: 

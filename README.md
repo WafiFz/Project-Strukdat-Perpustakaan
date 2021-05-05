@@ -27,15 +27,15 @@ Manfaat :
 Aplikasi PJJ dapat melakukan beberapa hal, antara lain sebagai beikut:
 
 -User-
-* Menampilkan seluruh daftar buku
+* Menampilkan seluruh daftar buku (katalog buku)
 * Mencari buku (Berdasarkan judul/penulis/tahun terbit)
 * Meminjam buku
 * Mengembalikan buku
 * Menampilkan buku yang sedang dipinjam
 
 -Petugas-
-* Mengirim buku 
-* Katalog buku
+* Mengirim buku (Lihar Order)
+* Menampilkan seluruh daftar buku (katalog buku) 
 * Tambah buku
 * Hapus Buku
 

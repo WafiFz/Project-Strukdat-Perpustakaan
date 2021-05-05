@@ -51,12 +51,16 @@ User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan
 
 [Skema meminjam buku]:
 ```shell
-User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". (Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
+User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist). 
+Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. 
+Kemudian, diberi pilihan prioritas pengiriman (express/regular). Identitas user dan Buku akan di-enqueu ke "Dikirim". 
+(Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
 ```
 
 [Skema mengembalikan buku]:
 ```shell
-User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). Apabila ditemukan, hapus edge di Graph "Dipinjam".
+User meng-input judul buku yang akan dipinjam (Melakukan Search Graph "Dipinjam"). 
+Apabila ditemukan, hapus edge di Graph "Dipinjam".
 ```
 
 [Skema Menampilkan buku yang sedang dipinjam]:

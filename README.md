@@ -28,7 +28,7 @@ Aplikasi PJJ dapat melakukan beberapa hal, antara lain sebagai beikut:
 
 -User-
 * Menampilkan seluruh daftar buku
-* Mencari buku (Berdasarkan judul/penulis/kategori)
+* Mencari buku (Berdasarkan judul/penulis/tahun terbit)
 * Meminjam buku
 * Mengembalikan buku
 * Menampilkan buku yang sedang dipinjam
@@ -44,9 +44,9 @@ Aplikasi PJJ dapat melakukan beberapa hal, antara lain sebagai beikut:
 Traversal linkedlist
 ```
 
-[Skema Mencari buku (Berdasarkan penulis/kategori/judul)]:
+[Skema Mencari buku (Berdasarkan judul/penulis/tahun  terbit)]:
 ```shell
-User meng-input penulis/kategori/judul buku. Apabila ditemukan, buku ditampilkan
+User meng-input judul/penulis/tahun terbit buku. Apabila ditemukan, buku ditampilkan
 ```
 
 [Skema meminjam buku]:

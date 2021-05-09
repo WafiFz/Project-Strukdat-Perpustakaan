@@ -53,6 +53,7 @@ void tambah_buku(pointer& head, pointer& newBuku){
 		if(pRev != nullptr){
 			  	newBuku->next = pRev->next;
 	  			newBuku->prev = pRev;
+				pRev->next->prev = newBuku;
 	  			pRev->next = newBuku;
 		}else{
 			if(head->next == nullptr){
@@ -61,13 +62,9 @@ void tambah_buku(pointer& head, pointer& newBuku){
 	  			head->next = newBuku;
 	  			head->prev = newBuku;
 	  		}else{
-	  			pointer temp = head->next;
-				while(temp != head->prev){
-		  			temp = temp->next;
-				}
-				temp->next = newBuku;
-				newBuku->prev = temp;
 				newBuku->next = head;
+				newBuku->prev = head->prev;
+				head->prev->next = newBuku;
 				head->prev = newBuku;
 	  		} 
 		}
@@ -104,7 +101,8 @@ void identitas_buku_peminjam(pointer buku){
 	print<teks>("Nama Peminjam: "); print_endl(buku->peminjam);
 	print<teks>("Nama Alamat  : "); print_endl(buku->alamat);
 	print<teks>("Prioritas    : "); 
-	if(buku->prioritas == 1) print_endl("Express");
+	if(buku->prioritas == 0) print_endl("");
+	else if(buku->prioritas == 1) print_endl("Express");
 	else print_endl("Regular");
 }
 
@@ -123,19 +121,19 @@ void traversal_semua_buku(const pointer head){
 }
 
 void traversal_buku(const pointer head, std::string key, int& banyak_buku){
-	pointer buku = head->next;
-	pointer traversal = head;
+	pointer buku;
+	pointer traversal = head->next;
 	banyak_buku = 0;
 
-    if(buku != nullptr){
-		while(traversal != head->prev){
-
-			buku = cari_buku(traversal, key);
-			if(buku != nullptr) {identitas_buku(buku); banyak_buku++;}
-			if(key == buku->kode) {break;} 
+    if(traversal != nullptr){
+		while(traversal != head){
 			
+			if(key == traversal->kode || key == traversal->judul || key == traversal->penulis || key == traversal->tahun || key == traversal->peminjam) {
+				identitas_buku(traversal);
+				banyak_buku++;
+			}
+			if(key == traversal->kode) {break;} 			
 			traversal = traversal->next;
-			
 		}
 	}
 }

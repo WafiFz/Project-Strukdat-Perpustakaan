@@ -14,13 +14,14 @@ void input(tipe& isi){
     std::cin >> isi;
 }
 
-void endl(){ 
-    std::cout << std::endl;
+template <typename tipe>
+void input_string(tipe& teks){
+    std::cin.ignore(); 
+    std::getline(std::cin, teks);
 }
 
-template <typename tipe>
-void input_string(tipe teks){ 
-    std::getline(std::cin, teks);
+void endl(){ 
+    std::cout << std::endl;
 }
 
 void clear_screen(){

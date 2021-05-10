@@ -2,11 +2,12 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include "template.hpp"
 #include "antarmuka.hpp"
 #include "struct.hpp"
 #include "linked_list.hpp"
 #include "queue.hpp"
-#include "case_petugas.hpp"
+#include "petugas.hpp"
 #include "operasi_file.hpp"
 
 
@@ -111,9 +112,10 @@ int main(int argc, char const *argv[]){
                             
                             print<teks>("Nama      : "); input_string(pPinjam->peminjam);
                             print<teks>("Alamat    : "); std::getline(std::cin, pPinjam->alamat);
-                            print<teks>("\nPrioritas : \n1. Express \n2. Regular\n\nPilihan : "); 
+                            print_endl<teks>("\nPrioritas : \n1. Express \n2. Regular\n"); 
                             
                             prioritas:
+                            print("Pilihan : ");
                             input<int>(pPinjam->prioritas);
 
                             if(pPinjam->prioritas != 1 && pPinjam->prioritas != 2){ 
@@ -161,7 +163,7 @@ int main(int argc, char const *argv[]){
                     }else{
                         header2("BUKU DITEMUKAN");
                         tabel();
-                        traversal_buku(head, key, banyak_buku);
+                        traversal_buku(head, key, banyak_buku); //traversal graph
                         batas_akhir_tabel();
                         cetak_banyak_buku(banyak_buku);
 
@@ -173,7 +175,7 @@ int main(int argc, char const *argv[]){
 
                             if(key == "0") break;
 
-                            pBuku = cari_buku(head, key);
+                            pBuku = cari_buku(head, key); // graph
 
                             if(pBuku == nullptr || key != pBuku->kode){
                                 print_endl<teks>("Input Salah!");
@@ -184,6 +186,7 @@ int main(int argc, char const *argv[]){
                         konfirmasi(cek, "untuk mengembalikan.\n");
 
                         //hapus dari graph "dipinjam"
+                        
                         print_endl("\n-Buku Dikembalikan-");
                         kembali();
                         break;
@@ -243,10 +246,13 @@ int main(int argc, char const *argv[]){
                 break;
             
             default : 
-                error(); 
+                error();
+                kembali();
+                std::cin.get(); 
                 break;
         }        
 	
 	}while(pilihan != 0);
+    
     save_data(head);
 }

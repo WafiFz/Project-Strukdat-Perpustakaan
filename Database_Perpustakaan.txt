@@ -4,6 +4,12 @@ Tere Liye
 2002
 NULL
 NULL
+A113
+Hujan
+Tere Liye
+2012
+NULL
+NULL
 A112
 Pulang
 Tere Liye
@@ -14,5 +20,11 @@ B111
 Laskar Pelangi
 Andrea Hirata
 2002
+NULL
+NULL
+C111
+Bumi Manusia
+Pramoedya Ananta
+1942
 NULL
 NULL

@@ -20,7 +20,7 @@ void backup_file(const pointer head){
 }
 
 bool kondisi(){
-	std::ifstream ifile("Perpustakaan.txt");
+	std::ifstream ifile("Database_Perpustakaan.txt");
 	if (ifile){
 		return true;
 	}else{
@@ -39,7 +39,7 @@ void buat_file(){
 }
 
 void cek_file(const pointer head){
-	if(true){
+	if(kondisi()){
 		backup_file(head);
 	}else{
 		buat_file();

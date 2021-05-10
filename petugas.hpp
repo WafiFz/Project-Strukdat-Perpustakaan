@@ -14,10 +14,10 @@ void case_petugas(pointer& head){
 	int banyak_buku = 0;
 	char cek;
 	std::string key, kode, judul, penulis, tahun;
-	pointer pBuku = nullptr, pBaru = nullptr;
+	pointer pBuku = nullptr, pBaru = nullptr, pDel = nullptr;
 
 	do{
-		clear_screen();
+	      clear_screen();
         menu_petugas();
         input<int>(pilihan_petugas);
 
@@ -34,8 +34,8 @@ void case_petugas(pointer& head){
 						konfirmasi(cek, "apabila selesai dikirim.\n");
 						
 						if(cek == 'y' || cek == 'Y'){
-							dequeue(queue, front(queue));
-							//buku masuk ke graph "Dipinjam"
+							pDel = dequeue(queue);
+							//buku masuk ke graph "Dipinjam" (insert graph)
 							print_endl("\n-Buku Selesai Dikirim-");
 							kembali();
 							std::cin.get();
@@ -61,7 +61,7 @@ void case_petugas(pointer& head){
 
            	case 4:
            		clear_screen(); 
-				header("TAMBAH BUKU");
+				      header("TAMBAH BUKU");
           
            		cek_batal();
            		print("Kode         : "); input_string(kode);

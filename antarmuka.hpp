@@ -1,5 +1,3 @@
-#include "template.hpp"
-
 using teks = std::string;
 
 void header(std::string judul){

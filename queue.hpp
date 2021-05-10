@@ -48,7 +48,9 @@ void enqueue(Queue& Q, pointer pNew){
     }
 }
 
-void dequeue(Queue& Q, pointer pDel){
+pointer dequeue(Queue& Q){
+    pointer pDel;
+
     if(isEmpty(Q)){
         pDel = nullptr;
     }else if(Q.head->next == nullptr){
@@ -60,4 +62,5 @@ void dequeue(Queue& Q, pointer pDel){
         Q.head = Q.head->next;
         pDel->next = nullptr;
     }
+    return pDel;
 }

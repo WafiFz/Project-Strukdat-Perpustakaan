@@ -85,7 +85,7 @@ void menu_utama(){
     print_endl<teks>("5. Buku Dipinjam");
 
     print_endl<teks>("\n\n9. Login Sebagai Petugas");
-    print_endl<teks>("0. Keluar");
+    print_endl<teks>("0. Simpan & Keluar");
     print_endl<teks>("==================================================");
     print<teks>("Pilihan : ");
 }
@@ -98,7 +98,7 @@ void menu_petugas(){
     print_endl<teks>("4. Tambah Buku");
     print_endl<teks>("5. Hapus Buku");
 
-    print_endl<teks>("\n\n0. Keluar");
+    print_endl<teks>("\n\n0. Simpan & Keluar");
     print_endl<teks>("==================================================");
     print("Pilihan : ");
 }

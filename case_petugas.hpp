@@ -1,8 +1,10 @@
 void katalog(pointer& head){
+	int banyak_buku=0;
 	header_tabel("KATALOG");
     tabel();
-	traversal_semua_buku(head);
+	traversal_semua_buku(head, banyak_buku);
     batas_akhir_tabel();
+    cetak_banyak_buku(banyak_buku);
 	kembali();
     std::cin.get();
 }
@@ -67,7 +69,7 @@ void case_petugas(pointer& head){
            		print("Judul        : "); std::getline(std::cin, judul);
            		print("Penulis      : "); std::getline(std::cin, penulis);
            		print("Tahun Terbit : "); std::getline(std::cin, tahun);
-           		buat_node(pBaru, kode, judul, penulis, tahun);
+           		buat_node(pBaru, kode, judul, penulis, tahun, "NULL", "NULL");
            		tambah_buku(head, pBaru);
            		print_endl("\n-Buku Ditambahkan-");
            		kembali();

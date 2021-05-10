@@ -6,20 +6,20 @@ pointer sentinel_node() {
   return sentinel;
 }
 
-void buat_node(pointer& newBuku, std::string kode, std::string judul, std::string penulis, std::string tahun){
-    newBuku = new Perpustakaan;
-    newBuku->kode = kode;
-    newBuku->judul = judul;
-    newBuku->penulis = penulis;
-    newBuku->tahun = tahun;
-    newBuku->prioritas = 0;
-    newBuku->peminjam = "";
-    newBuku->alamat = "";
-    newBuku->next = nullptr;
-    newBuku->prev = nullptr;
+void buat_node(pointer& buku, std::string kode, std::string judul, std::string penulis, std::string tahun, std::string peminjam, std::string alamat){
+    buku = new Perpustakaan;
+    buku->kode = kode;
+    buku->judul = judul;
+    buku->penulis = penulis;
+    buku->tahun = tahun;
+    buku->peminjam = peminjam;
+    buku->alamat = alamat;
+    buku->prioritas = 0;
+    buku->next = nullptr;
+    buku->prev = nullptr;
 }
 
-pointer cari_buku(pointer head, std::string key){
+pointer cari_buku(const pointer head, std::string key){
 	bool kondisi = false;
 	pointer pCari = head->next;
 	
@@ -41,7 +41,7 @@ pointer cari_buku(pointer head, std::string key){
   	else return nullptr;
 }
 
-void tambah_buku(pointer& head, pointer& newBuku){
+void tambah_buku(const pointer head, pointer& newBuku){
 	pointer unik = cari_buku(head, newBuku->kode);
 	if(unik != nullptr){
 		print<teks>("Buku ");
@@ -71,7 +71,7 @@ void tambah_buku(pointer& head, pointer& newBuku){
 	}
 }
 
-void hapus_buku(pointer head, std::string key){
+void hapus_buku(const pointer head, std::string key){
 	pointer pHapus = cari_buku(head, key);
 	
   	pointer pHelp = pHapus;
@@ -88,7 +88,7 @@ void identitas_buku(pointer buku){
 		 	  << "| " << std::left << std::setw(18) << buku->penulis  
 		 	  << "| " << std::left << std::setw(13) << buku->tahun
 		 	  << "| ";
-		 	  if(buku->peminjam != "") print_endl("Dipinjam");
+		 	  if(buku->peminjam != "NULL") print_endl("Dipinjam");
 		 	  else endl();
 }
 
@@ -101,17 +101,18 @@ void identitas_buku_peminjam(pointer buku){
 	print<teks>("Nama Peminjam: "); print_endl(buku->peminjam);
 	print<teks>("Nama Alamat  : "); print_endl(buku->alamat);
 	print<teks>("Prioritas    : "); 
-	if(buku->prioritas == 0) print_endl("");
-	else if(buku->prioritas == 1) print_endl("Express");
-	else print_endl("Regular");
+	if(buku->prioritas == 1) print_endl("Express");
+	else if(buku->prioritas == 2) print_endl("Regular");
+	else print_endl(buku->prioritas);
 }
 
-void traversal_semua_buku(const pointer head){
+void traversal_semua_buku(const pointer head, int& banyak_buku){
 	pointer buku = head->next;
     
     if(buku != nullptr){
     	while(buku != head){
 			identitas_buku(buku);
+			banyak_buku++;
 			buku = buku->next;
 		}
     }else{

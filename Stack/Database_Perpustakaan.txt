@@ -2,24 +2,30 @@ A111
 Hujan
 Tere Liye
 2002
-Wafi Fahruzzaman
-Jl. Peta
+Fadli
+Kembar
 A112
 Pulang
 Tere Liye
 2002
-Alfadli
-Kembar
+Wafi
+Peta
 A113
 Hujan
 Tere Liye
 2012
-NULL
-NULL
+Ahmad
+Sulawesi
 B111
 Laskar Pelangi
 Andrea Hirata
 2002
+NULL
+NULL
+B112
+Ayah
+Andrea Hirata
+2011
 NULL
 NULL
 C111
@@ -28,3 +34,9 @@ Pramoedya Ananta
 1942
 NULL
 NULL
+C112
+Jejak Langkah
+Pramoedya Ananta
+1942
+Bastian
+Jakarta

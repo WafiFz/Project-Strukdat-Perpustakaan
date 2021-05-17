@@ -109,8 +109,10 @@ void identitas_buku_peminjam(pointer buku){
 	endl();
 }
 
-void identitas_buku_keranjang(pointer buku){
+void identitas_buku_keranjang(pointer buku, int& banyak_buku){
+	banyak_buku = 0;
 	while(buku != nullptr){
+		banyak_buku++;
 		print<teks>("Kode Buku    : "); print_endl(buku->kode);
 		print<teks>("Judul        : "); print_endl(buku->judul);
 		print<teks>("Penulis      : "); print_endl(buku->penulis);

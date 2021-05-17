@@ -67,7 +67,7 @@ void case_petugas(pointer& head){
 					}else{
             identitas_peminjam(front(queue));
             endl();
-						identitas_buku_peminjam(front(queue));
+						print<teks>("Kode Buku    : "); print_endl(front(queue)->kode);
 						konfirmasi(cek, "apabila selesai dikirim.\n");
 						
 						if(cek == 'y' || cek == 'Y'){

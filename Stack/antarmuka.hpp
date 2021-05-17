@@ -32,6 +32,20 @@ void konfirmasi(char& cek, std::string aksi){
 	print<teks>("Pilihan : ");
 	input<char>(cek);
 	
+	if (cek == 'y'|| cek == 'Y' || cek == 'n' || cek == 'N'){}	
+    else {error(); goto label_konfirmasi;}
+}
+
+void konfirmasi2(char& cek, std::string aksi){
+	label_konfirmasi:
+	print_endl<teks>("========================================");
+	print<teks>("Input 'y' ");
+	print<teks>(aksi);
+	print_endl<teks>("Input 'n' untuk kembali ke menu.");
+	print_endl<teks>("========================================");
+	print<teks>("Pilihan : ");
+	input<char>(cek);
+	
 	if (cek == 'y'|| cek == 'Y' || cek == 'n' || cek == 'N' || cek == 'u' || cek == 'U' || cek == 'l' || cek == 'L'){}	
     else {error(); goto label_konfirmasi;}
 }
@@ -100,4 +114,14 @@ void menu_petugas(){
     print_endl<teks>("\n\n0. Simpan & Keluar");
     print_endl<teks>("==================================================");
     print("Pilihan : ");
+}
+
+void biaya(int prioritas, int banyak_buku){
+	print_endl<teks>("========================================");
+	print<teks>("TOTAL BIAYA: Rp ");
+	if(prioritas == 1) print<int>(20000*banyak_buku);
+	else print<int>(15000*banyak_buku);
+	print<teks>(",-");
+	endl(); 
+	print_endl<teks>("========================================");
 }

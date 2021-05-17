@@ -72,6 +72,12 @@ int main(int argc, char const *argv[]){
                     clear_screen();
                     header("PINJAM BUKU");
                     cek_batal();
+                    
+                    print_endl<teks>("Buku akan dikirim ke alamat anda, dengan biaya");
+                    print_endl<teks>("-Express Rp 20.000,-/buku.");
+                    print_endl<teks>("-Regular Rp 10.000,-/buku.");
+                    print_endl<teks>("Dibayar secara COD.");
+
                     header2("Mohon Input Identitas Anda");
                             
                     print<teks>("Nama      : "); input_string(pPinjam->peminjam);
@@ -109,10 +115,11 @@ int main(int argc, char const *argv[]){
 
                         if(banyak_buku > 1){
                             input_kode_buku:
+                            print_endl<teks>("[Input 0 untuk kembali]\n");
                             print<teks>("Input Kode Buku Pada Tabel di Atas : ");
                             std::getline(std::cin, key);
 
-                            if(key == "0") break;
+                            if(key == "0")  goto pinjam_buku;;
 
                             pBuku = cari_buku(head, key);
 
@@ -139,7 +146,7 @@ int main(int argc, char const *argv[]){
                         print_endl("\n-Buku dimasukkan ke keranjang-\n");
                         
                         undo:
-                        konfirmasi(cek, "untuk lanjutkan.\nInput 'u' untuk undo.\nInput 'l' untuk pinjam buku lain\n");
+                        konfirmasi2(cek, "untuk lanjutkan.\nInput 'u' untuk undo.\nInput 'l' untuk pinjam buku lainnya.\n");
 
                         if(cek == 'n' || cek == 'N') break;
                             
@@ -155,34 +162,37 @@ int main(int argc, char const *argv[]){
                             identitas_peminjam(stack);
                         	endl();
 
-                      		identitas_buku_keranjang(stack);
+                      		identitas_buku_keranjang(stack, banyak_buku);
+                      		cetak_banyak_buku(banyak_buku);
+                      		biaya(pPinjam->prioritas, banyak_buku);
+
                         	konfirmasi(cek, "untuk kirim buku.\n");
                         	if(cek == 'y' || cek == 'Y'){
                                 
-                          //       std::string kode, judul, penulis, tahun;
-                          //       do{
-                          //           pBuku = cari_buku(head, stack->kode);
-                          //           pBuku->peminjam = stack->peminjam;
-                          //           pBuku->alamat = stack->alamat;
-
-                          //           kode += stack->kode + "\t\t|";
-                          //           judul += stack->judul + "\t|";
-                          //           penulis += stack->penulis + "\t|";
-                          //           tahun += stack->tahun + "\t\t|";
-                        		// 	pop(stack);
- 
-                        		// }while(!isEmpty(stack));
-                                
-                          //       buat_node(pAntri, kode, judul, penulis, tahun, pPinjam->peminjam, pPinjam->alamat, pPinjam->prioritas);
-                          //       enqueue(queue, pAntri);
-								while(!isEmpty(stack)){
+                                std::string kode, judul, penulis, tahun;
+                                do{
                                     pBuku = cari_buku(head, stack->kode);
                                     pBuku->peminjam = stack->peminjam;
                                     pBuku->alamat = stack->alamat;
-     
-                        			enqueue(queue, pop(stack));
+
+                                    kode += stack->kode + "| ";
+                                    judul += stack->judul + "\t|";
+                                    penulis += stack->penulis + "\t|";
+                                    tahun += stack->tahun + "\t\t|";
+                        			pop(stack);
  
-                        		}
+                        		}while(!isEmpty(stack));
+                                
+                                buat_node(pAntri, kode, judul, penulis, tahun, pPinjam->peminjam, pPinjam->alamat, pPinjam->prioritas);
+                                enqueue(queue, pAntri);
+								// while(!isEmpty(stack)){
+        //                             pBuku = cari_buku(head, stack->kode);
+        //                             pBuku->peminjam = stack->peminjam;
+        //                             pBuku->alamat = stack->alamat;
+     
+        //                 			enqueue(queue, pop(stack));
+ 
+        //                 		}
                         		print_endl("\n-Buku dalam proses pengiriman-");
                         		kembali();
                         		std::cin.get();

@@ -175,7 +175,7 @@ int main(int argc, char const *argv[]){
                                     pBuku->peminjam = stack->peminjam;
                                     pBuku->alamat = stack->alamat;
 
-                                    kode += stack->kode + "| ";
+                                    kode += stack->kode + " | ";
                                     judul += stack->judul + "\t|";
                                     penulis += stack->penulis + "\t|";
                                     tahun += stack->tahun + "\t\t|";

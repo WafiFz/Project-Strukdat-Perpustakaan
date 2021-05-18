@@ -6,7 +6,7 @@ pointer sentinel_node() {
   return sentinel;
 }
 
-void buat_node(pointer& buku, std::string kode, std::string judul, std::string penulis, std::string tahun, std::string peminjam, std::string alamat){
+void buat_node(pointer& buku, std::string kode, std::string judul, std::string penulis, std::string tahun, std::string peminjam, std::string alamat, int prioritas){
     buku = new Perpustakaan;
     buku->kode = kode;
     buku->judul = judul;
@@ -14,7 +14,7 @@ void buat_node(pointer& buku, std::string kode, std::string judul, std::string p
     buku->tahun = tahun;
     buku->peminjam = peminjam;
     buku->alamat = alamat;
-    buku->prioritas = 0;
+    buku->prioritas = prioritas;
     buku->next = nullptr;
     buku->prev = nullptr;
 }
@@ -88,8 +88,17 @@ void identitas_buku(pointer buku){
 		 	  << "| " << std::left << std::setw(18) << buku->penulis  
 		 	  << "| " << std::left << std::setw(13) << buku->tahun
 		 	  << "| ";
-		 	  if(buku->peminjam != "NULL") print_endl("Dipinjam");
+		 	  if(buku->peminjam != "NULL") print_endl("Dipinjam oleh " + buku->peminjam);
 		 	  else endl();
+}
+
+void identitas_peminjam(pointer buku){
+	print<teks>("Nama Peminjam: "); print_endl(buku->peminjam);
+	print<teks>("Nama Alamat  : "); print_endl(buku->alamat);
+	print<teks>("Prioritas    : "); 
+	if(buku->prioritas == 1) print_endl("Express");
+	else if(buku->prioritas == 2) print_endl("Regular");
+	else print_endl(buku->prioritas);
 }
 
 void identitas_buku_peminjam(pointer buku){
@@ -98,12 +107,20 @@ void identitas_buku_peminjam(pointer buku){
 	print<teks>("Penulis      : "); print_endl(buku->penulis);
 	print<teks>("Tahun Terbit : "); print_endl(buku->tahun);
 	endl();
-	print<teks>("Nama Peminjam: "); print_endl(buku->peminjam);
-	print<teks>("Nama Alamat  : "); print_endl(buku->alamat);
-	print<teks>("Prioritas    : "); 
-	if(buku->prioritas == 1) print_endl("Express");
-	else if(buku->prioritas == 2) print_endl("Regular");
-	else print_endl(buku->prioritas);
+}
+
+void identitas_buku_keranjang(pointer buku, int& banyak_buku){
+	banyak_buku = 0;
+	while(buku != nullptr){
+		banyak_buku++;
+		print<teks>("Kode Buku    : "); print_endl(buku->kode);
+		print<teks>("Judul        : "); print_endl(buku->judul);
+		print<teks>("Penulis      : "); print_endl(buku->penulis);
+		print<teks>("Tahun Terbit : "); print_endl(buku->tahun);
+		endl();
+		buku = buku->next;
+	}
+
 }
 
 void traversal_semua_buku(const pointer head, int& banyak_buku){

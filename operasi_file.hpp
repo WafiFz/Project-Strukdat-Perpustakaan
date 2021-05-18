@@ -1,8 +1,32 @@
 void backup_file(const pointer head){
-	std::fstream file2 ("Database_Perpustakaan.txt");
+	std::string kode, judul, penulis, tahun, peminjam, alamat;
+	pointer pBaru=nullptr;
+
+	std::fstream file ("Database_Perpustakaan.txt");
+	if(file.is_open()){
+
+		while(!file.eof()){
+			getline(file, kode);
+			getline(file, judul);
+			getline(file, penulis);
+			getline(file, tahun);
+			getline(file, peminjam);
+			getline(file, alamat);
+
+			buat_node(pBaru, kode, judul, penulis, tahun, peminjam, alamat, 0);
+			tambah_buku(head, pBaru);
+		}
+		file.close();
+	}
+}
+
+void backup_order(){
+	std::string kode, judul, penulis, tahun, peminjam, alamat, string_prioritas;
+	int prioritas=0;
+	pointer pBaru=nullptr;
+
+	std::fstream file2 ("Database_Order.txt");
 	if(file2.is_open()){
-		std::string kode, judul, penulis, tahun, peminjam, alamat;
-		pointer pBaru=nullptr;
 
 		while(!file2.eof()){
 			getline(file2, kode);
@@ -11,9 +35,16 @@ void backup_file(const pointer head){
 			getline(file2, tahun);
 			getline(file2, peminjam);
 			getline(file2, alamat);
+			getline(file2, string_prioritas);
 
-			buat_node(pBaru, kode, judul, penulis, tahun, peminjam, alamat);
-			tambah_buku(head, pBaru);
+			
+			std::stringstream ubah(string_prioritas);
+			ubah >> prioritas;	
+
+			buat_node(pBaru, kode, judul, penulis, tahun, peminjam, alamat, prioritas);
+			if(pBaru->kode != ""){
+				enqueue(qkembali, pBaru);
+			}	
 		}
 		file2.close();
 	}
@@ -36,14 +67,39 @@ void buat_file(){
 	std::fstream file2;
 	file2.open("Database_Perpustakaan.txt", std::ios::out);
 	file2.close();
+
+	std::fstream file3;
+	file2.open("Database_Order.txt", std::ios::out);
+	file2.close();
 }
 
 void cek_file(const pointer head){
 	if(kondisi()){
 		backup_file(head);
+		backup_order();
 	}else{
 		buat_file();
 	}
+}
+
+void save_order(pointer buku){
+	std::fstream file;
+	file.open("Database_Order.txt", std::ios::in | std::ios::out | std::ios::trunc);
+	while(buku != nullptr){
+		file  << buku->kode 	<< std::endl
+			  << buku->judul 	<< std::endl
+			  << buku->penulis  << std::endl
+			  << buku->tahun 	<< std::endl
+			  << buku->peminjam << std::endl
+			  << buku->alamat 	<< std::endl
+			  << buku->prioritas;
+
+		if(buku->next != nullptr) file << std::endl;
+
+		buku = buku->next;
+	}
+	file.close();
+
 }
 
 void save_data(const pointer head){

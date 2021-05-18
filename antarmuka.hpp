@@ -11,9 +11,9 @@ void header(std::string judul){
 
 void header2(std::string judul){
 	endl();
-	print<teks>("===============");
+	print<teks>("=============== ");
 	print<teks>(judul);
-	print<teks>("===============");
+	print<teks>(" ===============");
 	endl();
 }
 
@@ -33,6 +33,20 @@ void konfirmasi(char& cek, std::string aksi){
 	input<char>(cek);
 	
 	if (cek == 'y'|| cek == 'Y' || cek == 'n' || cek == 'N'){}	
+    else {error(); goto label_konfirmasi;}
+}
+
+void konfirmasi2(char& cek, std::string aksi){
+	label_konfirmasi:
+	print_endl<teks>("========================================");
+	print<teks>("Input 'y' ");
+	print<teks>(aksi);
+	print_endl<teks>("Input 'n' untuk kembali ke menu.");
+	print_endl<teks>("========================================");
+	print<teks>("Pilihan : ");
+	input<char>(cek);
+	
+	if (cek == 'y'|| cek == 'Y' || cek == 'n' || cek == 'N' || cek == 'u' || cek == 'U' || cek == 'l' || cek == 'L'){}	
     else {error(); goto label_konfirmasi;}
 }
 
@@ -81,6 +95,7 @@ void menu_utama(){
     print_endl<teks>("3. Pinjam Buku");
     print_endl<teks>("4. Kembalikan Buku");
     print_endl<teks>("5. Buku Dipinjam");
+    print_endl<teks>("6. Buku Tersedia");
 
     print_endl<teks>("\n\n9. Login Sebagai Petugas");
     print_endl<teks>("0. Simpan & Keluar");
@@ -90,13 +105,24 @@ void menu_utama(){
 
 void menu_petugas(){
     header("SELAMAT DATANG DI MENU PETUGAS");
-    print_endl<teks>("1. Lihat Order");
-    print_endl<teks>("2. Katalog Buku");
-    print_endl<teks>("3. Buku Dipinjam");
-    print_endl<teks>("4. Tambah Buku");
-    print_endl<teks>("5. Hapus Buku");
+    print_endl<teks>("1. Lihat Order Antar");
+    print_endl<teks>("2. Lihat Order Jemput");
+    print_endl<teks>("3. Katalog Buku");
+    print_endl<teks>("4. Buku Dipinjam");
+    print_endl<teks>("5. Tambah Buku");
+    print_endl<teks>("6. Hapus Buku");
 
     print_endl<teks>("\n\n0. Simpan & Keluar");
     print_endl<teks>("==================================================");
     print("Pilihan : ");
+}
+
+void biaya(int prioritas, int banyak_buku){
+	print_endl<teks>("========================================");
+	print<teks>("TOTAL BIAYA: Rp ");
+	if(prioritas == 1) print<int>(20000*banyak_buku);
+	else print<int>(15000*banyak_buku);
+	print<teks>(",-");
+	endl(); 
+	print_endl<teks>("========================================");
 }

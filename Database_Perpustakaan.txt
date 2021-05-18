@@ -2,18 +2,18 @@ A111
 Hujan
 Tere Liye
 2002
-Wafi Fahruzzaman
-Jl. Peta
-A112
-Pulang
-Tere Liye
-2002
-Alfadli
-Kembar
+NULL
+NULL
 A113
 Hujan
 Tere Liye
 2012
+NULL
+NULL
+A112
+Pulang
+Tere Liye
+2002
 NULL
 NULL
 B111
@@ -22,8 +22,20 @@ Andrea Hirata
 2002
 NULL
 NULL
+B112
+Ayah
+Andrea Hirata
+2011
+NULL
+NULL
 C111
 Bumi Manusia
+Pramoedya Ananta
+1942
+NULL
+NULL
+C112
+Jejak Langkah
 Pramoedya Ananta
 1942
 NULL

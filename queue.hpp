@@ -35,7 +35,7 @@ void enqueue(Queue& Q, pointer pNew){
             pNew->next = pHelp;
             pNew->prev = nullptr;
             Q.head = pNew;
-        }else if(pHelp == Q.tail && pNew->prioritas > pHelp->prioritas){
+        }else if(pHelp == Q.tail && pNew->prioritas >= pHelp->prioritas){
             pHelp->next = pNew;
             pNew->prev = pHelp;
             Q.tail = pNew;

@@ -4,16 +4,16 @@ Tere Liye
 2002
 NULL
 NULL
-A113
-Hujan
-Tere Liye
-2012
-NULL
-NULL
 A112
 Pulang
 Tere Liye
 2002
+NULL
+NULL
+A113
+Hujan
+Tere Liye
+2012
 NULL
 NULL
 B111
@@ -38,5 +38,23 @@ C112
 Jejak Langkah
 Pramoedya Ananta
 1942
+NULL
+NULL
+D111
+Perahu Kertas
+Dee Lestari
+2006
+NULL
+NULL
+D112
+11:11
+Fiersa Besari
+2019
+NULL
+NULL
+D113
+Arah Langkah
+Fiersa Besari
+2018
 NULL
 NULL

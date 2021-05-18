@@ -55,18 +55,18 @@ User meng-input judul buku yang akan dipinjam (Melakukan Search Linkedlist).
 Apabila ditemukan, user diminta konfirmasi akan meminjam? ya/tidak. Jika ya, user diminta identitas. 
 Kemudian, diberi pilihan prioritas pengiriman (express/regular). 
 Identitas user dan Buku akan di-enqueu ke "Dikirim". 
-(Buku telah sampai di user) Identitas user dan Buku akan di-insert ke Graph "Dipinjam".
+(Buku telah sampai di user) Identitas user dan Buku akan diberi tanda "Dipinjam oleh ....".
 ```
 
 [Skema mengembalikan buku]:
 ```shell
-User meng-input judul buku yang akan dikembalikan (Melakukan Search Graph "Dipinjam"). 
-Apabila ditemukan, hapus edge di Graph "Dipinjam".
+User meng-input judul buku yang akan dikembalikan (Melakukan Search Linked list "Dipinjam"). 
+Apabila ditemukan, tanda "Dipinjam hapus". di-enqueu ke "Dijemput"
 ```
 
 [Skema Menampilkan buku yang sedang dipinjam]:
 ```shell
-Traversal Graph "Dipinjam"
+Traversal linkedlist yang terdapat tanda "Dipinjam"
 ```
 [Skema Menambah buku]:
 ```shell

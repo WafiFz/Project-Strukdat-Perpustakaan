@@ -52,7 +52,7 @@ void case_petugas(pointer& head){
 	pointer pBuku = nullptr, pBaru = nullptr, pDel = nullptr;
 
 	do{
-	      clear_screen();
+	    clear_screen();
         menu_petugas();
         input<int>(pilihan_petugas);
 

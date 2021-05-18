@@ -189,14 +189,7 @@ int main(int argc, char const *argv[]){
                                 
                                 buat_node(pAntri, kode, judul, penulis, tahun, pPinjam->peminjam, pPinjam->alamat, pPinjam->prioritas);
                                 enqueue(qpinjam, pAntri);
-								// while(!isEmpty(stack)){
-        //                             pBuku = cari_buku(head, stack->kode);
-        //                             pBuku->peminjam = stack->peminjam;
-        //                             pBuku->alamat = stack->alamat;
-     
-        //                 			enqueue(pinjam, pop(stack));
- 
-        //                 		}
+
                         		print_endl("\n-Buku dalam proses pengiriman-");
                         		kembali();
                         		std::cin.get();
@@ -266,6 +259,9 @@ int main(int argc, char const *argv[]){
                         	for(int i = 0; i < banyak_buku; i++){
                         		pBuku = cari_buku(head, key);
                                 kode += pBuku->kode + " | ";
+                                judul += stack->judul + "\t|";
+                                penulis += stack->penulis + "\t|";
+                                tahun += stack->tahun + "\t\t|";
 
                                 peminjam = pBuku->peminjam;
                                 alamat = pBuku->alamat;
@@ -290,30 +286,6 @@ int main(int argc, char const *argv[]){
         		clear_screen();
                 buku_dipinjam(head);
             	break;
-                // cek = 'y';
-                // while(cek == 'y' || cek == 'Y'){ 
-                //     clear_screen();
-                //     header("BUKU DIPINJAM");
-                //     print<teks>("Peminjam : ");
-                //     input_string<teks>(key);
-                //     //print<teks>(pBuku->peminjam);
-                //     pBuku = cari_buku(head, key);
-                //     //print<teks>(pBuku->peminjam);
-                //     if(key == "0") break;
-                    
-                //     if(pBuku == nullptr){
-                //         header2("PEMINJAM TIDAK DITEMUKAN");
-                //         konfirmasi(cek, "untuk mengembalikan buku lain.\n");
-                //     }else{
-                //         header2("BUKU DITEMUKAN");
-                //         tabel();
-                //         traversal_buku(head, key, banyak_buku);
-                //         batas_akhir_tabel();
-                //         kembali();
-                //         break;
-                //     }
-                // }
-                // break;
 
             case 6:
             	clear_screen();

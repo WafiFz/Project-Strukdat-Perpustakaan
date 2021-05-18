@@ -20,8 +20,8 @@ B111
 Laskar Pelangi
 Andrea Hirata
 2002
-Fadli
-Kembar
+NULL
+NULL
 B112
 Ayah
 Andrea Hirata
@@ -32,8 +32,8 @@ C111
 Bumi Manusia
 Pramoedya Ananta
 1942
-Fadli
-Kembar
+NULL
+NULL
 C112
 Jejak Langkah
 Pramoedya Ananta

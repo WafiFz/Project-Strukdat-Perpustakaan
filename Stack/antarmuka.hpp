@@ -105,11 +105,12 @@ void menu_utama(){
 
 void menu_petugas(){
     header("SELAMAT DATANG DI MENU PETUGAS");
-    print_endl<teks>("1. Lihat Order");
-    print_endl<teks>("2. Katalog Buku");
-    print_endl<teks>("3. Buku Dipinjam");
-    print_endl<teks>("4. Tambah Buku");
-    print_endl<teks>("5. Hapus Buku");
+    print_endl<teks>("1. Lihat Order Antar");
+    print_endl<teks>("2. Lihat Order Jemput");
+    print_endl<teks>("3. Katalog Buku");
+    print_endl<teks>("4. Buku Dipinjam");
+    print_endl<teks>("5. Tambah Buku");
+    print_endl<teks>("6. Hapus Buku");
 
     print_endl<teks>("\n\n0. Simpan & Keluar");
     print_endl<teks>("==================================================");

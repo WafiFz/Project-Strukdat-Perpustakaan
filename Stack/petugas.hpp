@@ -59,19 +59,19 @@ void case_petugas(pointer& head){
 		switch(pilihan_petugas){
 			case 1:
 				cek = 'y';
-	            while(cek == 'y' || cek == 'Y'){
-	            	clear_screen(); 
+	      while(cek == 'y' || cek == 'Y'){
+	      	clear_screen(); 
 					header2("PRIORITAS SAAT INI");
-					if(isEmpty(queue)){
+					if(isEmpty(qpinjam)){
 						print_endl("\nTidak Ada.");
 					}else{
-            identitas_peminjam(front(queue));
+            identitas_peminjam(front(qpinjam));
             endl();
-						print<teks>("Kode Buku    : "); print_endl(front(queue)->kode);
+						print<teks>("Kode Buku    : "); print_endl(front(qpinjam)->kode);
 						konfirmasi(cek, "apabila selesai dikirim.\n");
 						
 						if(cek == 'y' || cek == 'Y'){
-							pDel = dequeue(queue);
+							pDel = dequeue(qpinjam);
 							//buku masuk ke graph "Dipinjam" (insert graph)
 							print_endl("\n-Buku Selesai Dikirim-");
 							kembali();
@@ -87,17 +87,46 @@ void case_petugas(pointer& head){
 				}
 				break;
 			
-			case 2:
+      case 2:
+        cek = 'y';
+	      while(cek == 'y' || cek == 'Y'){
+	      	clear_screen(); 
+					header2("PRIORITAS SAAT INI");
+					if(isEmpty(qkembali)){
+						print_endl("\nTidak Ada.");
+					}else{
+            identitas_peminjam(front(qkembali));
+            endl();
+						print<teks>("Kode Buku    : "); print_endl(front(qkembali)->kode);
+						konfirmasi(cek, "apabila selesai dikirim.\n");
+						
+						if(cek == 'y' || cek == 'Y'){
+							pDel = dequeue(qkembali);
+							print_endl("\n-Buku Selesai Dikembalikan-");
+							kembali();
+							std::cin.get();
+							break;
+						}else{
+							break;
+						}
+					}
+					kembali();
+					std::cin.get();
+					break;
+				}
+				break;    
+
+			case 3:
         clear_screen();
         katalog(head);
         break;
 
-      case 3:
+      case 4:
       	clear_screen();
         buku_dipinjam(head);
         break;
 
-     	case 4:
+     	case 5:
      		clear_screen(); 
 	      header("TAMBAH BUKU");
     
@@ -113,7 +142,7 @@ void case_petugas(pointer& head){
      		break;
 
 
-     	case 5:
+     	case 6:
        	cek = 'y';
           while(cek == 'y' || cek == 'Y'){
               clear_screen();

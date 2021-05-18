@@ -16,12 +16,16 @@ int main(int argc, char const *argv[]){
 	int pilihan, banyak_buku = 0;
     char cek;
     std::string key, username, password;
+    std::string kode, judul, penulis, tahun, peminjam, alamat;
     
     pointer pBuku = nullptr, pDel = nullptr, stack = nullptr;
     pointer pPinjam = new Perpustakaan;
     pointer pAntri = new Perpustakaan;
+    pointer pKembali = new Perpustakaan;
 	pointer head = sentinel_node();
-    buat_queue(queue);
+
+    buat_queue(qpinjam);
+    buat_queue(qkembali);
     buat_stack(stack);
 
     cek_file(head);
@@ -169,7 +173,7 @@ int main(int argc, char const *argv[]){
                         	konfirmasi(cek, "untuk kirim buku.\n");
                         	if(cek == 'y' || cek == 'Y'){
                                 
-                                std::string kode, judul, penulis, tahun;
+                                
                                 do{
                                     pBuku = cari_buku(head, stack->kode);
                                     pBuku->peminjam = stack->peminjam;
@@ -184,13 +188,13 @@ int main(int argc, char const *argv[]){
                         		}while(!isEmpty(stack));
                                 
                                 buat_node(pAntri, kode, judul, penulis, tahun, pPinjam->peminjam, pPinjam->alamat, pPinjam->prioritas);
-                                enqueue(queue, pAntri);
+                                enqueue(qpinjam, pAntri);
 								// while(!isEmpty(stack)){
         //                             pBuku = cari_buku(head, stack->kode);
         //                             pBuku->peminjam = stack->peminjam;
         //                             pBuku->alamat = stack->alamat;
      
-        //                 			enqueue(queue, pop(stack));
+        //                 			enqueue(pinjam, pop(stack));
  
         //                 		}
                         		print_endl("\n-Buku dalam proses pengiriman-");
@@ -245,16 +249,35 @@ int main(int argc, char const *argv[]){
                         traversal_buku(head, key, banyak_buku);
                         batas_akhir_tabel();
                         cetak_banyak_buku(banyak_buku);
+                        
+                        print_endl<teks>("Buku akan dijemput ke alamat anda, dengan biaya");
+                        print_endl<teks>("-Express Rp 20.000,-/buku.");
+                        print_endl<teks>("-Regular Rp 10.000,-/buku.");
+                        print_endl<teks>("Dibayar secara COD.");
+
+                        print_endl<teks>("\nPrioritas : \n1. Express \n2. Regular\n");
+                        input<int>(pKembali->prioritas);
+
+                        biaya(pKembali->prioritas, banyak_buku);
 
                         konfirmasi(cek, "untuk mengembalikan.\n");
 
                         if(cek == 'y' || cek == 'Y'){
                         	for(int i = 0; i < banyak_buku; i++){
                         		pBuku = cari_buku(head, key);
-                        		pBuku->peminjam = "NULL";
-                        		pBuku->alamat = "NULL";                      	
+                                kode += pBuku->kode + " | ";
+
+                                peminjam = pBuku->peminjam;
+                                alamat = pBuku->alamat;
+
+                                pBuku->peminjam = "NULL";
+                                pBuku->alamat = "NULL";
                         	}
-                        	print_endl("\n-Buku Dikembalikan-");
+
+                            buat_node(pKembali, kode, judul, penulis, tahun, peminjam, alamat, pKembali->prioritas);
+                            enqueue(qkembali, pKembali);   
+
+                        	print_endl("\n-Buku sedang dijemput ke alamat anda-");
                         	kembali();
                         	std::cin.get();
                         }
@@ -332,5 +355,5 @@ int main(int argc, char const *argv[]){
 	}while(pilihan != 0);
     
     save_data(head);
-    save_order(front(queue));
+    save_order(front(qpinjam));
 }

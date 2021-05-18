@@ -43,7 +43,7 @@ void backup_order(){
 
 			buat_node(pBaru, kode, judul, penulis, tahun, peminjam, alamat, prioritas);
 			if(pBaru->kode != ""){
-				enqueue(queue, pBaru);
+				enqueue(qkembali, pBaru);
 			}	
 		}
 		file2.close();

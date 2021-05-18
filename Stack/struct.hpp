@@ -16,5 +16,5 @@ typedef Perpustakaan* pointer;
 struct Queue{
     pointer head;
     pointer tail;
-}queue;
+}qpinjam, qkembali;
 
